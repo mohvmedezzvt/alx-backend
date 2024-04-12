@@ -1,5 +1,21 @@
 #!/usr/bin/env python3
 """5-app.py
+
+This module contains a Flask application that demonstrates internationalization
+(i18n) and localization (l10n) using Flask-Babel.
+
+The application allows users to view the index page in different languages
+based on their preferences.
+
+The available languages in the application are
+English ('en') and French ('fr').
+
+The application also provides a way to simulate logging in as different
+users by specifying the 'login_as' query parameter.
+
+The user information is stored in a dictionary called 'users'.
+
+The application uses Flask-Babel for i18n and l10n.
 """
 
 from flask import Flask, render_template, request, g
