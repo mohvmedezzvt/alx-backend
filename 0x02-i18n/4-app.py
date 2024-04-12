@@ -29,6 +29,12 @@ def get_locale() -> str:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
+def get_user() -> dict:
+    """ Get user
+    """
+    return request.args.get('login_as')
+
+
 @app.route('/', strict_slashes=False)
 def index() -> str:
     """ Main route
