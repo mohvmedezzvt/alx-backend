@@ -3,8 +3,7 @@ from flask_babel import Babel
 
 
 class Config:
-    """ Config class
-    """
+    """Config class for Flask app configuration."""
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
@@ -29,9 +28,9 @@ def get_user():
 
     Returns:
         The user object if the 'login_as' parameter is valid and corresponds to
-         a user in the 'users' dictionary.
+        a user in the 'users' dictionary.
         None if the 'login_as' parameter is not provided or does not correspond
-         to a user in the 'users' dictionary.
+        to a user in the 'users' dictionary.
     """
     id = request.args.get('login_as')
     if id is not None and int(id) in users.keys():
@@ -50,7 +49,12 @@ def before_request():
 
 
 def get_locale() -> str:
-    """ Get locale
+    """Get the locale based on the 'locale' query parameter or the
+    'accept_languages' header.
+
+    Returns:
+        The best matching locale from the available languages in the app
+        configuration.
     """
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
@@ -63,6 +67,7 @@ babel.init_app(app)
 
 @app.route('/')
 def index():
+    """Render the index template."""
     return render_template('5-index.html')
 
 
