@@ -31,14 +31,14 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 
-def get_locale() -> str:
-    """Get locale
+# def get_locale() -> str:
+#     """Get locale
 
-    This function determines the best matching language based
-    on the user's preferences.
-    It is used as the locale selector for Flask-Babel.
-    """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+#     This function determines the best matching language based
+#     on the user's preferences.
+#     It is used as the locale selector for Flask-Babel.
+#     """
+#     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 babel = Babel(app)
