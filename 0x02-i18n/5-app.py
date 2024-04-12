@@ -28,8 +28,10 @@ def get_user():
     Retrieves the user based on the 'login_as' query parameter.
 
     Returns:
-        The user object if the 'login_as' parameter is valid and corresponds to a user in the 'users' dictionary.
-        None if the 'login_as' parameter is not provided or does not correspond to a user in the 'users' dictionary.
+        The user object if the 'login_as' parameter is valid and corresponds to
+         a user in the 'users' dictionary.
+        None if the 'login_as' parameter is not provided or does not correspond
+         to a user in the 'users' dictionary.
     """
     id = request.args.get('login_as')
     if id is not None and int(id) in users.keys():
